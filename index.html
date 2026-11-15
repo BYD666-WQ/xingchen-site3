@@ -250,7 +250,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
   </div></div>
   <div class="panel">
     <div class="chips" id="galChips"><button class="chip on" type="button" data-k="all">全部</button><button class="chip" type="button" data-k="draw">开奖图</button><button class="chip" type="button" data-k="poster">期号海报</button><button class="chip" type="button" data-k="zod">生肖图</button></div>
-    <div class="gallery" id="gallery"></div>
+    <div class="gallery" id="galGrid"></div>
   </div>
   <div class="foot">图库为设计占位版式 · 接入图片后自动替换</div>
 </div></section>
@@ -533,7 +533,7 @@ function renderGallery(){
     var x=shown[j];
     h+='<button class="gcard" type="button" style="--gc:'+x.color+'"><div class="gpic"><b>'+esc(shortIssue(x.issue))+'</b><small>'+(x.k==='draw'?'开奖图':x.k==='poster'?'期号海报':'生肖图')+'</small></div><div class="gcap">第'+esc(shortIssue(x.issue))+'期 · '+(x.k==='draw'?'开奖号码':x.k==='poster'?'期号海报':'生肖资料')+'</div></button>';
   }
-  $('#gallery').innerHTML=h||'<div class="skeleton">暂无图片</div>';
+  $('#galGrid').innerHTML=h||'<div class="skeleton">暂无图片</div>';
 }
 function renderZiliao(q){
   var rows=(STATE.ziliao&&STATE.ziliao.rows)||[];
