@@ -3,245 +3,243 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#ffffff">
-<title>彩运通 · 开奖资料网</title>
-<meta name="description" content="彩运通开奖资料网：新港、新澳、香港开奖结果、历史开奖、生肖号码与资料大全。">
+<meta name="theme-color" content="#f5f1fd">
+<title>彩运通开奖大厅 · 新香港开奖资料</title>
+<meta name="description" content="彩运通开奖大厅：新港、新澳、香港开奖结果、历史开奖、生肖号码与资料大全。">
 <style>
 :root{
- --red:#e11d22;--red-2:#b10e13;--yellow:#ffd21c;--yellow-2:#ffec8a;
- --blue:#1758c8;--blue-2:#0d3b91;--green:#28a745;--green-2:#17752c;
- --purple:#8a43c8;--orange:#ff7a00;--pink:#e83e8c;--teal:#0c9c9c;
- --ink:#1d1d1d;--muted:#7d6a50;--line:#e6d9bd;
+ --bg:#f5f1fd;--card:#ffffff;--ink:#241c3d;--ink-2:#4b4168;--muted:#8a80a5;
+ --line:#e5dcf7;--line-2:#d4c6f0;
+ --purple:#6b4fe0;--purple-2:#8a72ff;--lav:#e9e1ff;--lav-2:#f4efff;
+ --gold:#f0c56a;--gold-2:#ffe4a3;--dark:#241a3f;
+ --red:#e0475b;--blue:#3f6fe0;--green:#2fa66a;
  --sans:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;
  --num:"Arial Black","DIN Alternate",Arial,sans-serif;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{background:#f5f0e3}
-body{margin:0;background:#fff;color:var(--ink);font:12px/1.4 var(--sans);padding-bottom:calc(66px + env(safe-area-inset-bottom))}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font:12px/1.4 var(--sans);padding-bottom:calc(62px + env(safe-area-inset-bottom))}
 a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}
-.wrap{max-width:540px;margin:0 auto;padding:0 7px}
-.topline{background:#fff;border-bottom:2px solid #efdcae;font-size:9px;font-weight:700;color:#9a6b18}
-.topline .wrap{display:flex;align-items:center;justify-content:space-between;padding:4px 7px;gap:6px}
-.topline .tag{background:#fff3c4;border:1px solid #e9c45b;border-radius:3px;padding:1px 5px;color:#b23b16;white-space:nowrap}
-.topline .mid{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.header{background:#fff;border-bottom:2px solid #f0d18c;padding:8px 0 6px}
-.header .row{display:flex;align-items:center;gap:8px}
-.logo{margin:0;line-height:.95;letter-spacing:-1px}
-.logo .main{font-family:var(--num);font-size:37px;font-weight:900;color:#e21b1b;text-shadow:2px 0 0 #ffd21c,-2px 0 0 #ffd21c,0 2px 0 #ffd21c,0 -2px 0 #ffd21c,2px 2px 0 #1d5dc9;display:inline-block;transform:skew(-4deg)}
-.logo .cn{font-size:18px;font-weight:900;color:#144fb3;letter-spacing:.08em;margin-left:2px;text-shadow:1px 1px 0 #fff,2px 2px 0 #ffd21c}
-.logo .sub{font-size:9px;color:#9b6b1f;font-weight:700;letter-spacing:.12em;margin-top:3px}
-.brandright{margin-left:auto;text-align:center;background:#fff3c4;border:2px solid #e21b1b;border-radius:7px;padding:4px 7px;color:#cf1118;font-weight:900;font-size:13px;line-height:1.15;transform:rotate(2deg);box-shadow:2px 2px 0 #ffce35;flex:0 0 auto}
-.brandright small{display:block;font-size:8px;color:#1758c8;letter-spacing:.08em}
-.result{margin-top:7px;border:3px solid #ffd21c;outline:1px solid #e9b900;background:#fffef7;box-shadow:0 3px 0 rgba(190,140,20,.16);padding:5px 6px 6px;position:relative}
-.result-top{display:flex;align-items:center;gap:6px;line-height:1;min-height:26px}
-.issue{background:linear-gradient(#ffef9c,#ffd21c);border:1px solid #ddae00;border-radius:3px;padding:4px 6px;color:#b01116;font-weight:900;font-size:13px;white-space:nowrap}
-.issue b{font-family:var(--num);font-size:16px;color:#e21b1b}
-.result-top .lbl{font-size:10px;color:#8c6a36;font-weight:700;margin-left:2px;white-space:nowrap}
-.result-top .status{margin-left:auto;font-size:8px;font-weight:900;color:#fff;background:#e21b1b;border-radius:3px;padding:2px 4px;white-space:nowrap}
-.balls{display:flex;justify-content:space-between;gap:2px;margin:5px 0 1px;padding:2px 1px 3px;background:linear-gradient(#fff9df,#fff);border-top:1px dashed #ead8ad;border-bottom:1px dashed #ead8ad;min-height:52px}
+.wrap{max-width:540px;margin:0 auto;padding:0 10px}
+/* 公告 */
+.announce{background:var(--card);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:7px;padding:7px 10px;font-size:9px;font-weight:700;color:var(--muted);white-space:nowrap;overflow:hidden}
+.ann-tag{flex:0 0 auto;background:var(--purple);color:#fff;font-size:9px;font-weight:900;padding:2px 6px;border-radius:2px;letter-spacing:.06em}
+.ann-text{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;color:var(--ink-2)}
+.ann-date{flex:0 0 auto;font-size:8px;color:var(--muted)}
+/* 品牌头 */
+.brandhead{background:var(--lav-2);border-bottom:1px solid var(--line);padding:12px 0 10px}
+.brandhead .row{display:flex;align-items:center;gap:9px}
+.logo-c{width:46px;height:46px;flex:0 0 46px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-family:var(--num);font-size:22px;font-weight:900;border:2px solid #fff;box-shadow:0 0 0 1px var(--purple);position:relative}
+.logo-c small{position:absolute;bottom:-9px;left:50%;transform:translateX(-50%);background:var(--purple);color:#fff;font:700 6px/1 var(--sans);letter-spacing:.08em;padding:1px 3px;border-radius:1px;white-space:nowrap}
+.brand-title{min-width:0}
+.brand-title h1{margin:0;font-family:var(--num);font-size:23px;line-height:1.05;color:var(--ink);font-weight:900;letter-spacing:-.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-title h1 em{font-family:var(--sans);font-style:normal;color:var(--purple);font-size:20px}
+.brand-title p{margin:4px 0 0;font-size:9px;color:var(--muted);font-weight:700;letter-spacing:.06em}
+.issuebox{margin-left:auto;flex:0 0 auto;border:1px solid var(--purple);background:#fff;padding:4px 8px;text-align:center;border-radius:2px}
+.issuebox b{display:block;font-family:var(--num);font-size:15px;color:var(--purple);line-height:1.1;white-space:nowrap}
+.issuebox span{display:block;font-size:8px;color:var(--muted);margin-top:2px;white-space:nowrap}
+/* 彩种 */
+.tabs{display:flex;gap:0;border:1px solid var(--line-2);border-top:0;background:#fff;margin-top:8px}
+.tab{flex:1;border:0;border-right:1px solid var(--line);background:var(--lav);padding:7px 2px 6px;display:flex;flex-direction:column;align-items:center;gap:2px;color:#6b5a92;border-radius:0;position:relative}
+.tab:last-child{border-right:0}
+.tab b{font-size:14px;font-weight:900;letter-spacing:.04em}
+.tab small{font-size:8px;color:#9a8eb8;font-weight:700}
+.tab.on{background:#fff;color:var(--purple)}
+.tab.on small{color:#8a72ff}
+.tab.on:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--purple)}
+/* 开奖卡 */
+.drawcard{margin-top:9px;background:var(--card);border:1px solid var(--line-2);border-top:3px solid var(--purple);padding:8px 9px 7px;border-radius:0}
+.draw-hd{display:flex;align-items:center;gap:6px;min-height:28px}
+.draw-hd .k{font-size:10px;color:var(--muted);font-weight:700;white-space:nowrap}
+.draw-hd .iss{font-family:var(--num);font-size:19px;color:var(--purple);font-weight:900;line-height:1;white-space:nowrap}
+.draw-hd .iss small{font-family:var(--sans);font-size:10px;color:var(--muted);font-weight:700;margin-left:2px}
+.draw-hd .status{margin-left:auto;font-size:8px;font-weight:900;color:#fff;background:var(--purple);padding:2px 5px;border-radius:2px;white-space:nowrap}
+.draw-hd .date{font-size:8px;color:var(--muted);white-space:nowrap}
+.balls{display:flex;justify-content:space-between;gap:2px;margin:7px 0 4px;padding:4px 1px 3px;background:linear-gradient(var(--lav-2),#fff);border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);min-height:56px}
 .bwrap{width:13.4%;text-align:center;min-width:0}
-.ball{width:100%;aspect-ratio:1;max-width:38px;margin:0 auto;border-radius:50%;display:grid;place-items:center;color:#fff;font-family:var(--num);font-size:14px;font-weight:900;position:relative;border:2px solid #fff;box-shadow:0 2px 0 rgba(0,0,0,.18)}
-.ball:before{content:"";position:absolute;left:7px;right:7px;top:4px;height:8px;border-radius:50%;background:linear-gradient(rgba(255,255,255,.7),transparent)}
-.ball.r{background:radial-gradient(circle at 33% 22%,#ff8a80,#e21b1b 50%,#9b0d10)}
-.ball.b{background:radial-gradient(circle at 33% 22%,#8eb6ff,#1758c8 50%,#0b2f74)}
-.ball.g{background:radial-gradient(circle at 33% 22%,#9be7ac,#28a745 50%,#126224)}
-.ball.special{box-shadow:0 0 0 2px #ffd21c,0 2px 0 rgba(0,0,0,.18)}
-.ball.special:after{content:"特";position:absolute;right:-3px;bottom:-3px;width:12px;height:12px;border-radius:50%;background:#ffd21c;color:#a30f12;font-size:7px;display:grid;place-items:center;border:1px solid #fff;font-family:var(--sans)}
-.zod{font-size:10px;font-weight:800;color:#6c4c12;line-height:1.5;margin-top:1px}
-.tabs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:7px}
-.tab{border:2px solid var(--blue);border-radius:8px;background:#fff;padding:6px 2px 5px;color:#1758c8;font-size:14px;font-weight:900;line-height:1.1;box-shadow:0 2px 0 rgba(23,88,200,.2);position:relative;text-align:center}
-.tab small{display:block;font-size:8px;font-weight:700;color:#7c91b6;letter-spacing:.08em;margin-top:2px}
-.tab.on{background:linear-gradient(#fff3b0,#ffe066);color:#c21319;border-color:#e21b1b;box-shadow:0 2px 0 rgba(190,20,25,.2)}
-.tab.on small{color:#a96b12}.tab .tick{display:inline-grid;place-items:center;width:19px;height:19px;border-radius:50%;background:#fff;color:#1758c8;border:1px solid currentColor;font-size:9px;font-family:var(--num);font-style:normal;vertical-align:-4px;margin-right:3px;font-weight:900}.tab.on .tick{background:#fff7c7;color:#c21319}.tab[data-g="newmo"] .tick{color:#139a45}.tab[data-g="hk"] .tick{color:#e21b1b}
-.navrow{display:flex;align-items:center;justify-content:space-between;gap:1px;margin-top:6px;background:linear-gradient(#ffe45e,#ffd21c);border:2px solid #e9b900;border-radius:4px;padding:5px 3px;color:#c90f16;font-weight:900;font-size:11px;text-align:center;box-shadow:0 2px 0 rgba(180,130,0,.12)}
-.navrow a{flex:1;border-right:1px dotted #c89f1a;line-height:1.2;white-space:nowrap}
-.navrow a:last-child{border-right:0}
-.datestrip{margin-top:5px;background:linear-gradient(90deg,#2fd35b,#08a83a);border:1px solid #0b8b30;border-radius:4px;padding:5px 6px;font-size:9px;font-weight:800;color:#fff;line-height:1.4;text-shadow:0 1px 1px rgba(0,80,0,.2);display:flex;justify-content:space-between;gap:5px;flex-wrap:wrap}
-.datestrip b{color:#fffbd0}
-.banner{margin-top:6px;border:3px solid #ffd21c;border-radius:7px;overflow:hidden;position:relative;background:
- radial-gradient(circle at 85% 20%,rgba(255,255,255,.6),transparent 18%),
- radial-gradient(circle at 10% 110%,rgba(255,215,0,.9),transparent 35%),
- linear-gradient(120deg,#d40f18 0%,#f32d25 35%,#ff8a00 70%,#ffd21c 100%);
- color:#fff;padding:9px 8px 8px;box-shadow:0 3px 0 rgba(160,50,10,.15);min-height:88px}
-.banner:before{content:"";position:absolute;right:-24px;top:-40px;width:110px;height:110px;border-radius:50%;border:8px solid rgba(255,255,255,.16)}
-.banner .kick{position:relative;font-size:9px;font-weight:900;letter-spacing:.16em;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45);border-radius:3px;padding:2px 5px;display:inline-block}
-.banner h2{position:relative;margin:4px 0 1px;font-family:var(--num);font-size:27px;font-weight:900;letter-spacing:.02em;line-height:1;color:#fff;text-shadow:0 2px 0 #a80b10,2px 0 0 #ffd21c,-2px 0 0 #ffd21c}
-.banner h2 em{font-family:var(--sans);font-style:normal;font-size:16px;color:#fff7b2;letter-spacing:.05em}
-.banner p{position:relative;margin:3px 0 0;font-size:9px;font-weight:700;color:#fff9d0}
-.banner .badges{position:relative;display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
-.banner .badges span{background:#fffbd0;color:#a51316;border-radius:3px;font-size:8px;font-weight:900;padding:2px 5px;border:1px solid #fff}
-.clockline{position:relative;margin-top:5px;display:flex;align-items:center;gap:5px;font-weight:900;font-size:10px;color:#fff}
-.clockline .cd{display:flex;gap:2px;align-items:center;font-family:var(--num);font-size:16px;color:#fff;text-shadow:1px 1px 0 #a80b10}
-.clockline .cd span{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.5);border-radius:3px;padding:1px 3px}
-.boards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:6px}
-.board{border:2px solid var(--bc,#e21b1b);border-radius:8px;background:#fff;padding:6px 4px 5px;text-align:center;box-shadow:0 2px 0 rgba(0,0,0,.06);min-height:55px;position:relative;overflow:hidden}
-.board:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--bc,#e21b1b)}
-.board .per{font-family:var(--num);font-size:10px;font-weight:900;color:var(--bc,#e21b1b);line-height:1}
-.board .nm{font-size:10.5px;font-weight:900;color:var(--bc,#e21b1b);line-height:1.2;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.board .sm{font-size:8px;color:#a38b63;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.board:nth-child(1),.board:nth-child(5),.board:nth-child(9){--bc:#e21b1b}
-.board:nth-child(2),.board:nth-child(6){--bc:#1758c8}
-.board:nth-child(3),.board:nth-child(7){--bc:#139a45}
-.board:nth-child(4),.board:nth-child(8){--bc:#8a43c8}
-.sect{margin-top:7px;border:2px solid #e8b33a;border-radius:6px;background:#fffdf8;overflow:hidden}
-.sect-h{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#ffd21c,#fff3b0);padding:5px 8px;border-bottom:1px solid #e8c03b;gap:6px}
-.sect-h b{font-size:11px;color:#c21319;font-weight:900}.sect-h span{font-size:8px;color:#9a6b25;white-space:nowrap}
-.sect-b{padding:6px 7px}
-.pick-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap;font-size:9px;color:#6b4c1e;line-height:1.6}
-.pick-row+.pick-row{margin-top:3px}
-.pick-row .k{flex:0 0 36px;font-weight:900;color:#c21319;font-size:9px}
-.pick-row .n{display:inline-grid;place-items:center;min-width:21px;height:21px;border-radius:50%;background:#fff;border:1px solid #e9b900;color:#b01116;font-family:var(--num);font-size:9px;font-weight:900}
-.pick-row .n.z{color:#1758c8;border-color:#9bb8e8}
-.pick-row .n.b{color:#28a745;border-color:#9dd3a8}
-.rec-row{display:flex;align-items:center;gap:6px;padding:6px 2px;border-top:1px dashed #f0dfbd;font-size:9px;white-space:nowrap;overflow:hidden}
-.rec-row:first-child{border-top:0}
-.rec-row .rno{font-family:var(--num);font-weight:900;color:#1758c8;width:18px;flex:none}
-.rec-row .rt{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700;color:#5d2d13}
-.rec-row .rq{font-family:var(--num);font-size:8px;color:#b1511c;white-space:nowrap}
-.poem-card{margin-top:7px;border:3px solid #8a43c8;border-radius:7px;background:linear-gradient(160deg,#fff8ff,#fffdf8);overflow:hidden;position:relative}
-.poem-card:before{content:"";position:absolute;right:-24px;bottom:-36px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(138,67,200,.16),transparent 70%)}
-.poem-h{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#8a43c8,#e83e8c);color:#fff;padding:5px 8px;font-weight:900;font-size:11px}
-.poem-h span{font-size:8px;font-weight:700;opacity:.9}
-.poem-text{position:relative;padding:7px 8px 6px;text-align:center;font-size:13px;line-height:1.8;color:#5d2d13;font-weight:900;letter-spacing:1px}
-.poem-text i{font-style:normal;color:#8a43c8}
-.poem-note{position:relative;padding:0 8px 6px;text-align:center;font-size:8px;color:#a08c6f}
-.zod-card{margin-top:7px;border:2px solid #28a745;border-radius:7px;overflow:hidden;background:#fff}
-.zod-h{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#28a745,#79d38c);color:#fff;padding:5px 8px;font-weight:900;font-size:11px}
-.zod-h span{font-size:8px;font-weight:700;opacity:.95}
-.zod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#d7ead9;padding:1px}
-.zcell{background:#fffdf8;padding:4px 2px 3px;text-align:center;min-width:0}
-.zcell b{display:block;font-size:11px;color:#17752c;font-weight:900;line-height:1.2}
-.zcell span{display:block;font-size:8.5px;color:#6c4c12;font-weight:700;line-height:1.5;word-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.zcell.hot b{color:#e21b1b}.zcell.hot{background:#fff3c4}
-.adslot{display:flex;align-items:center;gap:7px;margin-top:7px;border:2px dashed #e8b33a;border-radius:5px;background:linear-gradient(90deg,#fff8df,#fffdf8);padding:7px 8px;font-size:9px;color:#9a6b25}
-.adslot .al{flex:none;background:#ffd21c;color:#a51316;font-weight:900;border-radius:3px;padding:2px 5px;font-size:8px}
-.adslot b{font-size:10px;color:#c02a1b}.adslot em{margin-left:auto;font-style:normal;color:#b08b55;font-size:8px}
-.foot{margin-top:8px;padding-top:6px;border-top:1px solid #ead8ad;text-align:center;font-size:8px;color:#9b8b6b;line-height:1.7}
-.foot b{color:#c02a1b}
+.ball{width:100%;aspect-ratio:1;max-width:40px;margin:0 auto;border-radius:50%;display:grid;place-items:center;color:#fff;font-family:var(--num);font-size:15px;font-weight:900;position:relative;border:2px solid #fff;box-shadow:0 2px 0 rgba(36,28,61,.16)}
+.ball:before{content:"";position:absolute;left:8px;right:8px;top:4px;height:8px;border-radius:50%;background:linear-gradient(rgba(255,255,255,.7),transparent)}
+.ball.r{background:radial-gradient(circle at 33% 22%,#ff8a95,#e0475b 50%,#a51f33)}
+.ball.b{background:radial-gradient(circle at 33% 22%,#8fb2ff,#3f6fe0 50%,#1f3f9e)}
+.ball.g{background:radial-gradient(circle at 33% 22%,#8fe4b8,#2fa66a 50%,#146b3e)}
+.ball.special{box-shadow:0 0 0 2px var(--gold),0 2px 0 rgba(36,28,61,.16)}
+.ball.special:after{content:"特";position:absolute;right:-3px;bottom:-3px;width:12px;height:12px;border-radius:50%;background:var(--gold);color:#5a3700;font-size:7px;display:grid;place-items:center;border:1px solid #fff;font-family:var(--sans)}
+.zod{font-size:10px;font-weight:800;color:#6c5a8a;line-height:1.5;margin-top:1px}
+.draw-ft{display:flex;align-items:center;justify-content:space-between;gap:6px;border-top:1px dashed var(--line);padding-top:5px;font-size:9px;color:var(--muted)}
+.draw-ft b{color:var(--purple);font-weight:900}
+.draw-ft .waves{color:var(--muted);font-weight:700;white-space:nowrap}
+/* 倒计时卡 */
+.countcard{margin-top:9px;background:linear-gradient(135deg,#2d2152,#241a3f 60%,#1d1433);border:1px solid #3d2f68;padding:9px 10px 8px;border-radius:0;color:#fff;position:relative;overflow:hidden}
+.countcard:before{content:"";position:absolute;right:-30px;top:-40px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(240,197,106,.16),transparent 70%)}
+.count-top{display:flex;align-items:center;gap:6px;font-size:9px;color:#c9bde8;font-weight:700;position:relative}
+.count-top b{color:var(--gold-2);font-size:10px}
+.count-top .next{margin-left:auto;color:#c9bde8;font-size:8px}
+.count-digits{position:relative;display:flex;justify-content:center;align-items:baseline;gap:2px;margin:3px 0 2px;font-family:var(--num);font-size:40px;font-weight:900;letter-spacing:1px;color:var(--gold);text-shadow:0 2px 0 rgba(0,0,0,.25)}
+.count-digits i{font-style:normal;color:var(--gold-2);font-size:24px;opacity:.8;transform:translateY(-3px)}
+.count-bar{position:relative;height:3px;background:rgba(255,255,255,.14);margin-top:5px;overflow:hidden;border-radius:0}
+.count-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-2))}
+.count-ft{display:flex;justify-content:space-between;gap:6px;margin-top:5px;font-size:8.5px;color:#c9bde8;position:relative}
+.count-ft b{color:#fff;font-weight:900}
+/* 九板块 */
+.sects{margin-top:14px}
+.sects-hd{display:flex;align-items:center;gap:7px;border-bottom:2px solid var(--purple);padding-bottom:5px}
+.sects-hd h2{margin:0;font-family:var(--num);font-size:19px;color:var(--ink);font-weight:900;letter-spacing:-.2px;position:relative;padding-left:8px}
+.sects-hd h2:before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:3px;background:var(--purple)}
+.sects-hd span{font-size:8px;letter-spacing:.18em;color:var(--muted);font-weight:700}
+.sects-hd .all{margin-left:auto;font-size:9px;color:var(--purple);font-weight:900;border:1px solid var(--line-2);padding:3px 6px;border-radius:2px}
+.grid9{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}
+.card9{position:relative;background:#fff;border:1px solid var(--line);border-left:4px solid var(--c,var(--purple));padding:8px 8px 7px;min-height:78px;display:flex;flex-direction:column;text-align:left;border-radius:0}
+.card9 .no{font-family:var(--num);font-size:10px;font-weight:900;color:var(--c,var(--purple));line-height:1}
+.card9 .nm{font-size:14px;font-weight:900;color:var(--ink);line-height:1.2;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card9 .meta{font-size:8px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card9 .arrow{position:absolute;right:7px;bottom:7px;width:18px;height:18px;border-radius:50%;border:1px solid var(--c,var(--purple));display:grid;place-items:center;color:var(--c,var(--purple));font-size:10px;font-weight:900;line-height:1}
+.card9 .badge{position:absolute;right:6px;top:6px;font-size:7px;font-weight:900;color:#fff;background:var(--red);padding:1px 4px;border-radius:1px;line-height:1.4}
+.card9 .badge.new{background:var(--purple)}
+/* 历史 */
+.histbox{margin-top:14px;background:#fff;border:1px solid var(--line);border-top:2px solid var(--purple)}
+.hist-hd{display:flex;align-items:center;justify-content:space-between;padding:6px 8px;border-bottom:1px solid var(--line);font-size:11px;font-weight:900;color:var(--ink)}
+.hist-hd a{font-size:8px;color:var(--purple);font-weight:700}
+.hist-row{display:flex;align-items:center;gap:4px;padding:6px 8px;border-top:1px dashed var(--line);font-size:9px;white-space:nowrap;overflow:hidden}
+.hist-row:first-child{border-top:0}
+.hist-row .iss{flex:0 0 38px;font-family:var(--num);color:var(--purple);font-weight:900;font-size:9px}
+.hist-row .ns{display:flex;gap:2px;flex:1 1 auto;min-width:0}
+.hist-row .ns i{font-style:normal;width:19px;height:19px;border-radius:50%;display:grid;place-items:center;color:#fff;font-family:var(--num);font-size:8px;font-weight:900}
+.hist-row .ns i.r{background:var(--red)}.hist-row .ns i.b{background:var(--blue)}.hist-row .ns i.g{background:var(--green)}
+.hist-row .z{flex:0 0 auto;font-size:8px;color:var(--muted);font-weight:700}
+/* 生肖 */
+.zodbox{margin-top:10px;background:#fff;border:1px solid var(--line)}
+.zod-hd{display:flex;align-items:center;justify-content:space-between;padding:6px 8px;border-bottom:2px solid var(--purple);font-size:11px;font-weight:900;color:var(--ink)}
+.zod-hd span{font-size:8px;color:var(--muted);font-weight:700}
+.zod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);padding:1px}
+.zcell{background:#fff;padding:4px 2px 3px;text-align:center;min-width:0}
+.zcell b{display:block;font-size:11px;color:var(--purple);font-weight:900;line-height:1.2}
+.zcell span{display:block;font-size:8.5px;color:var(--ink-2);font-weight:700;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.zcell.hot{background:var(--lav)}
+/* 诗 */
+.poembox{margin-top:10px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--purple);padding:8px 9px}
+.poem-hd{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:900;color:var(--ink);border-bottom:1px dashed var(--line);padding-bottom:5px}
+.poem-hd span{font-size:8px;color:var(--muted);font-weight:700}
+.poem-txt{text-align:center;font-size:13px;line-height:1.8;color:var(--ink-2);font-weight:700;padding:7px 2px 3px;letter-spacing:1px}
+.poem-note{text-align:center;font-size:8px;color:var(--muted)}
 /* 二级页 */
-.subhead{background:#fff;border-bottom:3px solid #ffd21c;padding:6px 0 5px}
+.subhead{background:var(--lav-2);border-bottom:1px solid var(--line);padding:8px 0}
 .subhead .row{display:flex;align-items:center;gap:8px}
-.subhead .back{width:28px;height:28px;flex:0 0 28px;border:2px solid #e21b1b;border-radius:6px;display:grid;place-items:center;color:#e21b1b;font-weight:900;font-size:16px;background:#fff7dd}
-.subhead h1{margin:0;font-family:var(--num);font-size:22px;color:#e21b1b;text-shadow:1px 1px 0 #ffd21c,-1px -1px 0 #ffd21c;letter-spacing:0;line-height:1.1}
-.subhead .sub{display:block;font-size:8px;color:#9b6b1f;font-weight:700;letter-spacing:.12em;margin-top:2px}
-.subhead .cnt{margin-left:auto;font-size:9px;color:#8c6a36;font-weight:800;white-space:nowrap}
-.panel{margin-top:7px;border:2px solid #e8b33a;border-radius:6px;background:#fffdf8;overflow:hidden}
-.panel-h{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#ffd21c,#fff3b0);padding:5px 8px;border-bottom:1px solid #e8c03b;font-size:11px;font-weight:900;color:#c21319;gap:6px}
-.panel-h span{font-size:8px;color:#9a6b25;font-weight:700}
-.chips{display:flex;gap:4px;flex-wrap:wrap;padding:6px}
-.chip{border:1px solid #e9c45b;background:#fff;border-radius:4px;padding:3px 7px;font-size:9px;font-weight:900;color:#8c6a36}
-.chip.on{background:#e21b1b;border-color:#e21b1b;color:#fff3c4}
-.gallery{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px}
-.gcard{border:2px solid var(--gc,#e21b1b);border-radius:5px;background:#fff;overflow:hidden;text-align:left;padding:0}
-.gpic{aspect-ratio:4/5;background:linear-gradient(160deg,var(--gc,#e21b1b),#ffd21c);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:var(--num);font-weight:900;text-shadow:0 2px 0 rgba(0,0,0,.25);position:relative;overflow:hidden}
-.gpic:after{content:"";position:absolute;inset:7px;border:1px dashed rgba(255,255,255,.65);border-radius:3px}
-.gpic b{font-size:28px;line-height:1}.gpic small{font-size:8px;font-weight:700;margin-top:2px;background:rgba(0,0,0,.18);padding:1px 4px;border-radius:2px}
-.gcap{padding:4px 5px 5px;font-size:9px;font-weight:800;color:#6c4c12;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-top:1px solid #f1e2c3}
-.zl-row{display:flex;gap:6px;padding:6px 7px;border-top:1px dashed #f0dfbd;align-items:flex-start}
+.subhead .back{width:28px;height:28px;flex:0 0 28px;border:1px solid var(--purple);display:grid;place-items:center;color:var(--purple);font-weight:900;font-size:16px;background:#fff;border-radius:0}
+.subhead h1{margin:0;font-family:var(--num);font-size:21px;color:var(--ink);line-height:1.1;font-weight:900}
+.subhead .sub{display:block;font-size:8px;color:var(--muted);font-weight:700;margin-top:2px;letter-spacing:.08em}
+.subhead .cnt{margin-left:auto;font-size:9px;color:var(--purple);font-weight:900;white-space:nowrap}
+.panel{margin-top:8px;background:#fff;border:1px solid var(--line)}
+.panel-h{display:flex;align-items:center;justify-content:space-between;background:var(--lav);padding:5px 8px;border-bottom:1px solid var(--line);font-size:11px;font-weight:900;color:var(--purple)}
+.panel-h span{font-size:8px;color:var(--muted);font-weight:700}
+.chips{display:flex;gap:4px;flex-wrap:wrap;padding:7px}
+.chip{border:1px solid var(--line-2);background:#fff;padding:3px 7px;font-size:9px;font-weight:900;color:var(--muted);border-radius:0}
+.chip.on{background:var(--purple);border-color:var(--purple);color:#fff}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:7px}
+.gcard{border:1px solid var(--line);border-top:3px solid var(--gc,var(--purple));background:#fff;padding:0;text-align:left;border-radius:0}
+.gpic{aspect-ratio:4/5;background:linear-gradient(160deg,var(--gc,var(--purple)),var(--lav));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:var(--num);font-weight:900;position:relative}
+.gpic b{font-size:30px;line-height:1;text-shadow:1px 1px 0 rgba(0,0,0,.2)}
+.gpic small{font-size:8px;font-weight:700;margin-top:2px;background:rgba(0,0,0,.18);padding:1px 4px;border-radius:1px}
+.gcap{padding:4px 5px;font-size:9px;font-weight:800;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-top:1px solid var(--line)}
+.zl-row{display:flex;gap:6px;padding:6px 7px;border-top:1px dashed var(--line);align-items:flex-start}
 .zl-row:first-child{border-top:0}
-.zl-issue{flex:0 0 40px;text-align:center;border:1px solid #e9b900;border-radius:3px;background:#fff3c4;color:#b01116;font-size:9px;font-weight:900;padding:2px 0;line-height:1.3}
+.zl-issue{flex:0 0 40px;text-align:center;border:1px solid var(--line-2);background:var(--lav);color:var(--purple);font-size:9px;font-weight:900;padding:2px 0;line-height:1.3;border-radius:0}
 .zl-issue b{display:block;font-family:var(--num);font-size:12px}
 .zl-main{flex:1 1 auto;min-width:0}
-.zl-main .t{font-size:10px;font-weight:900;color:#5d2d13;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.zl-main .d{font-size:8px;color:#9a6b25;line-height:1.5;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.zl-status{flex:0 0 auto;font-size:8px;font-weight:900;color:#fff;background:#e21b1b;border-radius:3px;padding:2px 4px;white-space:nowrap}
-.zl-status.live{background:#139a45}.zl-status.upcoming{background:#ff7a00}
-.searchbar{display:flex;gap:4px;padding:6px}
-.searchbar input{flex:1;min-width:0;border:1px solid #e9c45b;border-radius:4px;padding:5px 7px;font-size:10px;outline:0;background:#fff}
-.searchbar button{border:1px solid #e21b1b;background:#e21b1b;color:#fff3c4;border-radius:4px;padding:0 9px;font-size:9px;font-weight:900}
+.zl-main .t{font-size:10px;font-weight:900;color:var(--ink);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.zl-main .d{font-size:8px;color:var(--muted);line-height:1.5;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.zl-status{flex:0 0 auto;font-size:8px;font-weight:900;color:#fff;background:var(--purple);padding:2px 4px;white-space:nowrap;border-radius:1px}
+.zl-status.live{background:var(--green)}.zl-status.upcoming{background:#c58a2a}
+.searchbar{display:flex;gap:4px;padding:7px}
+.searchbar input{flex:1;min-width:0;border:1px solid var(--line-2);padding:5px 7px;font-size:10px;outline:0;background:#fff;border-radius:0}
+.searchbar button{border:1px solid var(--purple);background:var(--purple);color:#fff;padding:0 9px;font-size:9px;font-weight:900;border-radius:0}
 .trend-chart{padding:7px 7px 4px}
-.bars{height:100px;display:flex;align-items:flex-end;gap:3px;background-image:repeating-linear-gradient(to top,#ead8ad 0 1px,transparent 1px 25px);border-left:1px solid #ead8ad;border-bottom:1px solid #ead8ad;padding:0 2px}
-.bars i{flex:1;min-width:0;min-height:3px;background:linear-gradient(180deg,#e21b1b,#ffb300);border-radius:1px 1px 0 0}
-.bars i:nth-child(3n){background:linear-gradient(180deg,#1758c8,#8eb6ff)}.bars i:last-child{background:linear-gradient(180deg,#139a45,#9be7ac)}
-.chart-x{display:flex;justify-content:space-between;font-size:8px;color:#9a6b25;margin-top:3px;font-weight:700}
-.trend-row{display:flex;align-items:center;gap:4px;padding:5px 7px;border-top:1px dashed #f0dfbd;font-size:9px;white-space:nowrap;overflow:hidden}
-.trend-row .ti{flex:0 0 36px;font-family:var(--num);color:#b01116;font-weight:900;font-size:9px}
+.bars{height:100px;display:flex;align-items:flex-end;gap:3px;background-image:repeating-linear-gradient(to top,var(--line) 0 1px,transparent 1px 25px);border-left:1px solid var(--line);border-bottom:1px solid var(--line);padding:0 2px}
+.bars i{flex:1;min-width:0;min-height:3px;background:linear-gradient(180deg,var(--purple),var(--purple-2));border-radius:0}
+.bars i:nth-child(3n){background:linear-gradient(180deg,var(--blue),#9db6ff)}.bars i:last-child{background:linear-gradient(180deg,var(--green),#9be7b9)}
+.chart-x{display:flex;justify-content:space-between;font-size:8px;color:var(--muted);margin-top:3px;font-weight:700}
+.trend-row{display:flex;align-items:center;gap:4px;padding:5px 7px;border-top:1px dashed var(--line);font-size:9px;white-space:nowrap;overflow:hidden}
+.trend-row .ti{flex:0 0 36px;font-family:var(--num);color:var(--purple);font-weight:900;font-size:9px}
 .trend-row .tn{display:flex;gap:2px;flex:1 1 auto;min-width:0}
 .trend-row .tn i{font-style:normal;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;color:#fff;font-family:var(--num);font-size:8px;font-weight:900}
-.trend-row .tn i.r{background:#e21b1b}.trend-row .tn i.b{background:#1758c8}.trend-row .tn i.g{background:#28a745}
-.trend-row .tz{flex:0 0 auto;font-size:8px;color:#6c4c12}
+.trend-row .tn i.r{background:var(--red)}.trend-row .tn i.b{background:var(--blue)}.trend-row .tn i.g{background:var(--green)}
+.trend-row .tz{flex:0 0 auto;font-size:8px;color:var(--muted)}
 /* 底部导航 */
-.bnav{position:fixed;left:50%;transform:translateX(-50%);bottom:0;z-index:40;width:100%;max-width:540px;height:calc(56px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);display:flex;background:#fff;border-top:3px solid #ffd21c;box-shadow:0 -3px 10px rgba(120,70,0,.12)}
-.bnav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#a38b63;font-size:9px;font-weight:900;position:relative}
+.bnav{position:fixed;left:50%;transform:translateX(-50%);bottom:0;z-index:40;width:100%;max-width:540px;height:calc(56px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);display:flex;background:#fff;border-top:2px solid var(--purple);box-shadow:0 -2px 10px rgba(70,50,130,.08)}
+.bnav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#9b92b5;font-size:9px;font-weight:900;position:relative}
 .bnav svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.bnav a.on{color:#e21b1b}
-.bnav a.on:before{content:"";position:absolute;top:-3px;width:26px;height:3px;background:#e21b1b;border-radius:0 0 3px 3px}
-.skeleton{color:#9a6b25;text-align:center;padding:10px;font-size:10px}
-@media(max-width:360px){.logo .main{font-size:31px}.logo .cn{font-size:15px}.ball{max-width:34px;font-size:12px}.banner h2{font-size:24px}.tab{font-size:13px}.navrow{font-size:10px}.board .nm{font-size:9.5px}.bnav a{font-size:8.5px}}
+.bnav a.on{color:var(--purple)}
+.bnav a.on:before{content:"";position:absolute;top:-2px;width:26px;height:2px;background:var(--purple)}
+.skeleton{color:var(--muted);text-align:center;padding:10px;font-size:10px}
+.foot{margin-top:12px;padding:8px 0;text-align:center;font-size:8px;color:var(--muted);line-height:1.7;border-top:1px solid var(--line)}
+.foot b{color:var(--ink-2)}
+@media(max-width:360px){.brand-title h1{font-size:20px}.ball{max-width:36px;font-size:13px}.count-digits{font-size:34px}.card9 .nm{font-size:13px}.bnav a{font-size:8.5px}}
 </style>
 </head>
 <body>
-<div class="topline"><div class="wrap"><span class="tag" id="topTag">开奖资料</span><span class="mid" id="topMid">数据加载中…</span><span id="topDate">—</span></div></div>
+<div class="announce"><span class="ann-tag">公告</span><span class="ann-text" id="annText">开奖资料加载中…</span><span class="ann-date" id="annDate">—</span></div>
 
-<header class="header" id="homeHeader"><div class="wrap">
+<header class="brandhead"><div class="wrap">
   <div class="row">
-    <div>
-      <h1 class="logo"><span class="main">彩运通</span><span class="cn">开奖网</span></h1>
-      <div class="sub">新港 · 新澳 · 香港开奖资料</div>
+    <div class="logo-c" aria-hidden="true">彩<small>CAIYUNTONG</small></div>
+    <div class="brand-title">
+      <h1>彩运通<em>开奖大厅</em></h1>
+      <p>新香港 · 开奖资料</p>
     </div>
-    <div class="brandright">开奖版<small id="brandIssue">第319期</small></div>
+    <div class="issuebox"><b id="brandIssue">第--期</b><span id="brandDate">—</span></div>
   </div>
 </div></header>
 
-<!-- ================= 首页 ================= -->
+<div class="wrap">
+  <div class="tabs" id="tabs">
+    <button class="tab on" type="button" data-g="newhk"><b>新港</b><small id="tabIssueHk">—</small></button>
+    <button class="tab" type="button" data-g="newmo"><b>新澳</b><small id="tabIssueMo">—</small></button>
+    <button class="tab" type="button" data-g="hk"><b>香港</b><small id="tabIssueHk2">—</small></button>
+  </div>
+</div>
+
 <main id="view-home"><div class="wrap">
-  <section class="result" aria-label="最新开奖">
-    <div class="result-top">
-      <span class="issue"><b id="issueNum">—</b>期开</span>
-      <span class="lbl" id="gameName">新港</span>
+  <section class="drawcard" aria-label="开奖号码">
+    <div class="draw-hd">
+      <span class="k">开奖号码</span>
+      <span class="iss" id="drawCardIssue">第--期</span>
       <span class="status" id="drawStatus">加载中</span>
+      <span class="date" id="drawDate">—</span>
     </div>
     <div class="balls" id="balls"><span class="skeleton">正在读取开奖数据…</span></div>
+    <div class="draw-ft"><span>开奖时间 <b id="drawTime">每日 --:--</b></span><span class="waves">红 · 蓝 · 绿波</span></div>
   </section>
 
-  <div class="tabs" id="tabs">
-    <button class="tab on" type="button" data-g="newhk"><i class="tick">港</i>新港<small>NEW HK</small></button>
-    <button class="tab" type="button" data-g="newmo"><i class="tick">澳</i>新澳<small>MACAU</small></button>
-    <button class="tab" type="button" data-g="hk"><i class="tick">香</i>香港<small>HONG KONG</small></button>
-  </div>
-
-  <div class="navrow">
-    <a href="#trend">历史开奖</a><a href="#ziliao">玄机资料</a><a href="#gallery">生肖图库</a><a href="#trend">规律走势</a><a href="#ziliao">资料大全</a>
-  </div>
-
-  <div class="datestrip"><span id="dateText">—</span><span id="cdText">倒计时 —</span></div>
-
-  <div class="banner">
-    <span class="kick" id="bannerKick">本期开奖资料</span>
-    <h2>开奖数据<br><em>一目了然</em></h2>
-    <p id="bannerSub">号码 · 生肖 · 九板块资料汇总</p>
-    <div class="badges"><span>开奖中心</span><span>历史记录</span><span>资料大全</span></div>
-    <div class="clockline">距下期开奖 <span class="cd"><span id="cdH">--</span>:<span id="cdM">--</span>:<span id="cdS">--</span></span> <span id="cdIssue"></span></div>
-  </div>
-
-  <section class="boards" id="boards" aria-label="九板块"></section>
-
-  <section class="sect" aria-label="本期精选">
-    <div class="sect-h"><b>本期精选</b><span id="pickIssue">—</span></div>
-    <div class="sect-b" id="pickBox"><div class="skeleton">读取精选资料…</div></div>
+  <section class="countcard" aria-label="下期倒计时">
+    <div class="count-top"><b>距下期开奖</b><span id="cdIssue">第--期</span><span class="next" id="gameName">新港</span></div>
+    <div class="count-digits"><span id="cdH">--</span><i>:</i><span id="cdM">--</span><i>:</i><span id="cdS">--</span></div>
+    <div class="count-bar"><i id="cdFill"></i></div>
+    <div class="count-ft"><span>还有 <b id="cdLeft">—</b></span><span id="cdDay">每日 --:-- 开奖</span></div>
   </section>
 
-  <section class="poem-card" aria-label="玄机诗象">
-    <div class="poem-h">玄机诗象 <span id="poemIssue">—</span></div>
-    <div class="poem-text">灯下翻旧卷，<i>潮声到码头</i>；<br>东南风一转，<i>数到第七舟</i>。</div>
-    <div class="poem-note">诗句为示例文案 · 本页不构成任何投注建议</div>
+  <section class="sects" aria-label="九板块">
+    <div class="sects-hd"><h2>九板块</h2><span>SECTIONS</span><a class="all" href="#ziliao">全部 ›</a></div>
+    <div class="grid9" id="boards"></div>
   </section>
 
-  <section class="zod-card" aria-label="生肖号码表">
-    <div class="zod-h">生肖号码表 <span id="zodYear">2026 丙午</span></div>
-    <div class="zod-grid" id="zodGrid"></div>
-  </section>
-
-  <section class="sect" aria-label="历史开奖">
-    <div class="sect-h"><b>历史开奖</b><a href="#trend" style="font-size:8px;color:#9a6b25">更多 ›</a></div>
+  <section class="histbox" aria-label="历史开奖">
+    <div class="hist-hd"><span>历史开奖</span><a href="#trend">更多 ›</a></div>
     <div id="recBox"><div class="skeleton">读取历史开奖…</div></div>
   </section>
 
-  <div class="adslot"><span class="al">资料位</span><b>开奖资料展示位</b><em>预留 · 不接广告</em></div>
-  <div class="foot">彩运通 · 开奖资料网 · 数据来源：公开数据接口<br><b>资料仅供参考，不构成任何投注建议</b></div>
+  <section class="zodbox" aria-label="生肖号码表">
+    <div class="zod-hd"><span>生肖号码表</span><span>2026 丙午 · 点击查看</span></div>
+    <div class="zod-grid" id="zodGrid"></div>
+  </section>
+
+  <section class="poembox" aria-label="玄机诗象">
+    <div class="poem-hd">玄机诗象 <span id="poemIssue">第--期</span></div>
+    <div class="poem-txt">灯下翻旧卷，潮声到码头；<br>东南风一转，数到第七舟。</div>
+    <div class="poem-note">诗句为示例文案 · 本页不构成任何投注建议</div>
+  </section>
+
+  <div class="foot">彩运通开奖大厅 · 开奖资料网<br><b>资料仅供参考，不构成任何投注建议</b></div>
 </div></main>
 
-<!-- ================= 图库 ================= -->
 <section id="view-gallery" hidden><div class="wrap">
   <div class="subhead"><div class="row">
     <a class="back" href="#home" aria-label="返回">‹</a>
@@ -255,7 +253,6 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
   <div class="foot">图库为设计占位版式 · 接入图片后自动替换</div>
 </div></section>
 
-<!-- ================= 资料大全 ================= -->
 <section id="view-ziliao" hidden><div class="wrap">
   <div class="subhead"><div class="row">
     <a class="back" href="#home" aria-label="返回">‹</a>
@@ -269,7 +266,6 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
   <div class="foot">资料为公开数据 · 仅供参考</div>
 </div></section>
 
-<!-- ================= 规律走势 ================= -->
 <section id="view-trend" hidden><div class="wrap">
   <div class="subhead"><div class="row">
     <a class="back" href="#home" aria-label="返回">‹</a>
@@ -294,6 +290,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
   <a href="#trend" data-nav="trend"><svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15l3-4 3 2 4-6"/></svg><span>走势</span></a>
 </nav>
 <script>
+
 (function(){
 'use strict';
 var $=function(s){return document.querySelector(s)};
@@ -620,8 +617,111 @@ function init(){
   startClock();
   route();
 }
+
+/* ===== 2026-11-15 改版：淡紫方角布局覆盖 ===== */
+function renderDate(){
+  var d=new Date(),WD=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+  if($('#annDate'))$('#annDate').textContent=d.getFullYear()+'.'+p2(d.getMonth()+1)+'.'+p2(d.getDate());
+  if($('#brandDate'))$('#brandDate').textContent=p2(d.getMonth()+1)+'.'+p2(d.getDate())+' '+WD[d.getDay()];
+}
+function renderHome(){
+  var g=currentGame();
+  var n=Number(g.labelIssue||0);
+  var si=isNaN(n)?'--':String(n).slice(-3);
+  var st=g.status||'待开奖';
+  if($('#issueNum'))$('#issueNum').textContent=si;
+  if($('#gameName'))$('#gameName').textContent=g.name;
+  if($('#drawStatus'))$('#drawStatus').textContent=st;
+  if($('#balls'))$('#balls').innerHTML=ballHtml(g.nums);
+  if($('#brandIssue'))$('#brandIssue').textContent='第'+si+'期';
+  if($('#drawCardIssue'))$('#drawCardIssue').textContent='第'+si+'期';
+  if($('#drawCardIssue'))$('#drawCardIssue').innerHTML='第 <span style="font-family:var(--num)">'+si+'</span> 期';
+  if($('#drawDate')){
+    var d=new Date(),WD=['日','一','二','三','四','五','六'];
+    $('#drawDate').textContent=p2(d.getMonth()+1)+'.'+p2(d.getDate())+' 周'+WD[d.getDay()]+' '+drawTimeFor(ACTIVE).time;
+  }
+  if($('#drawTime'))$('#drawTime').textContent='每日 '+drawTimeFor(ACTIVE).time;
+  if($('#annText'))$('#annText').textContent=g.name+' 第'+si+'期 '+st+' · 资料每日更新';
+  if($('#poemIssue'))$('#poemIssue').textContent='第'+si+'期';
+  // tab 上的期号
+  var md=STATE.manual||{},draw=STATE.draw||{};
+  var games=draw.games||[],by={};for(var i=0;i<games.length;i++)by[games[i].rule]=games[i];
+  if($('#tabIssueHk'))$('#tabIssueHk').textContent=(md.issue||'--')+'期';
+  if($('#tabIssueMo'))$('#tabIssueMo').textContent=((by.Macau&&by.Macau.shortIssue)||'--')+'期';
+  if($('#tabIssueHk2'))$('#tabIssueHk2').textContent=((by.HongKong&&by.HongKong.shortIssue)||'--')+'期';
+  updateTabs();
+  renderBoards(g);
+  renderRec(g);
+  renderZod(g);
+  renderCountdown();
+}
+function renderBoards(g){
+  var si=String(g.labelIssue||'--').slice(-3);
+  var hist=(g.history||[]).length;
+  var zl=((STATE.ziliao&&STATE.ziliao.rows)||[]).length;
+  var pickRows=((STATE.pick&&STATE.pick.rows)||[]);
+  var pick=pickRows[0]||null;
+  var pickN=pick&&pick.seven&&pick.seven.nums?pick.seven.nums.length:'--';
+  var B=[
+    {no:'01',nm:'本期精选',meta:'第'+si+'期 · '+pickN+'码',c:'#6b4fe0',href:'#home',badge:'HOT'},
+    {no:'02',nm:'历史开奖',meta:'近 '+hist+' 期记录',c:'#3f6fe0',href:'#trend'},
+    {no:'03',nm:'资料大全',meta:zl+' 条资料',c:'#8a5bd6',href:'#ziliao',badge:'NEW'},
+    {no:'04',nm:'生肖号码',meta:'12 生肖 · 2026 丙午',c:'#2fa66a',href:'#home'},
+    {no:'05',nm:'规律走势',meta:'近 '+hist+' 期分布',c:'#c58a2a',href:'#trend',badge:'HOT'},
+    {no:'06',nm:'玄机诗象',meta:'第'+si+'期 · 每日一诗',c:'#b4557f',href:'#home'},
+    {no:'07',nm:'图库',meta:'8 张开奖海报',c:'#0e9aa7',href:'#gallery'},
+    {no:'08',nm:'新手入门',meta:'开奖资料指引',c:'#6b4fe0',href:'#ziliao'},
+    {no:'09',nm:'常见问题',meta:'使用说明',c:'#3f6fe0',href:'#ziliao'}
+  ];
+  var h='';
+  for(var i=0;i<B.length;i++){
+    var b=B[i];
+    h+='<a class="card9" href="'+b.href+'" style="--c:'+b.c+'">'+
+      '<span class="no">'+b.no+'</span><span class="nm">'+b.nm+'</span><span class="meta">'+b.meta+'</span>'+
+      (b.badge?'<span class="badge'+(b.badge==='NEW'?' new':'')+'">'+b.badge+'</span>':'')+
+      '<span class="arrow">›</span></a>';
+  }
+  $('#boards').innerHTML=h;
+}
+function renderRec(g){
+  var h=(g.history||[]).slice(0,4);
+  if(!h.length){$('#recBox').innerHTML='<div class="skeleton">暂无历史开奖</div>';return}
+  var html='';
+  for(var i=0;i<h.length;i++){
+    var r=h[i],nums=(r.nums||[]).slice(0,7),zod=(r.nums&&r.nums[6]&&r.nums[6].z)||'';
+    var ns='';
+    for(var j=0;j<nums.length;j++){ns+='<i class="'+colorOf(nums[j].c,nums[j].color)+'">'+esc(p2(nums[j].c))+'</i>'}
+    html+='<div class="hist-row"><span class="iss">'+esc(shortIssue(r.issue))+'期</span><span class="ns">'+ns+'</span><span class="z">特 '+esc(zod)+'</span></div>';
+  }
+  $('#recBox').innerHTML=html;
+}
+function renderZod(g){
+  var hot='';if(g.nums&&g.nums[6])hot=g.nums[6].z;
+  var h='';
+  for(var i=0;i<ZOD_ORDER.length;i++){
+    var z=ZOD_ORDER[i],nums=ZODIAC_2026[z]||[];
+    h+='<div class="zcell'+(z===hot?' hot':'')+'"><b>'+z+'</b><span>'+nums.map(p2).join(' ')+'</span></div>';
+  }
+  $('#zodGrid').innerHTML=h;
+}
+function renderCountdown(){
+  if(!TARGET)TARGET=nextDraw(ACTIVE);
+  var left=Math.max(0,TARGET.getTime()-Date.now()),s=Math.floor(left/1000);
+  var hh=Math.floor(s/3600),mm=Math.floor(s%3600/60),ss=s%60;
+  if($('#cdH'))$('#cdH').textContent=p2(hh);
+  if($('#cdM'))$('#cdM').textContent=p2(mm);
+  if($('#cdS'))$('#cdS').textContent=p2(ss);
+  var g=currentGame();
+  if($('#cdIssue'))$('#cdIssue').textContent='第'+(g.nextIssue||g.labelIssue||'--')+'期';
+  if($('#cdLeft'))$('#cdLeft').textContent=hh+' 小时 '+mm+' 分';
+  if($('#cdDay'))$('#cdDay').textContent='每日 '+drawTimeFor(ACTIVE).time+' 开奖';
+  if($('#cdFill'))$('#cdFill').style.width=Math.min(100,Math.max(0,(1-left/86400000)*100)).toFixed(1)+'%';
+}
+
 init();
 })();
+
+
 </script>
 </body>
 </html>
