@@ -238,7 +238,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
   </section>
 
   <div class="adslot"><span class="al">资料位</span><b>开奖资料展示位</b><em>预留 · 不接广告</em></div>
-  <div class="foot">彩运通 · 开奖资料网 · 数据来源：主站公开数据接口<br><b>资料仅供参考，不构成任何投注建议</b></div>
+  <div class="foot">彩运通 · 开奖资料网 · 数据来源：公开数据接口<br><b>资料仅供参考，不构成任何投注建议</b></div>
 </div></main>
 
 <!-- ================= 图库 ================= -->
@@ -266,7 +266,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
     <div class="searchbar"><input id="zlSearch" type="search" placeholder="搜索期号 / 单双 / 生肖" aria-label="搜索资料"><button type="button" id="zlBtn">搜索</button></div>
     <div id="zlList"><div class="skeleton">读取资料…</div></div>
   </div>
-  <div class="foot">资料来自主站 manual-ziliao.json · 仅供参考</div>
+  <div class="foot">资料为公开数据 · 仅供参考</div>
 </div></section>
 
 <!-- ================= 规律走势 ================= -->
@@ -502,7 +502,7 @@ function renderDate(){
   $('#topDate').textContent=d.getFullYear()+'.'+p2(d.getMonth()+1)+'.'+p2(d.getDate());
   $('#dateText').textContent=WD[d.getDay()]+' · 今日开奖资料';
   $('#topTag').textContent='开奖资料';
-  $('#topMid').textContent='数据来源：主站公开接口 · 自动更新';
+  $('#topMid').textContent='开奖数据 · 每日更新';
 }
 function startClock(){
   if(COUNT_TIMER)clearInterval(COUNT_TIMER);
