@@ -94,6 +94,45 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
 .card9 .arrow{position:absolute;right:7px;bottom:7px;width:18px;height:18px;border-radius:50%;border:1px solid var(--c,var(--purple));display:grid;place-items:center;color:var(--c,var(--purple));font-size:10px;font-weight:900;line-height:1}
 .card9 .badge{position:absolute;right:6px;top:6px;font-size:7px;font-weight:900;color:#fff;background:var(--red);padding:1px 4px;border-radius:1px;line-height:1.4}
 .card9 .badge.new{background:var(--purple)}
+/* 更多资料 */
+.more{margin-top:14px}
+.more-hd{display:flex;align-items:center;gap:7px;border-bottom:2px solid var(--purple);padding-bottom:5px}
+.more-hd h2{margin:0;font-family:var(--num);font-size:19px;color:var(--ink);font-weight:900;letter-spacing:-.2px;position:relative;padding-left:8px}
+.more-hd h2:before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:3px;background:var(--purple)}
+.more-hd .en{font-size:8px;letter-spacing:.18em;color:var(--muted);font-weight:700}
+.more-hd .tag{margin-left:auto;font-size:8px;color:var(--purple);border:1px solid var(--line-2);padding:2px 5px;font-weight:700}
+.mblock{margin-top:8px;background:#fff;border:1px solid var(--line);border-top:2px solid var(--purple)}
+.mblock-h{display:flex;align-items:center;gap:6px;background:var(--lav-2);padding:5px 7px;border-bottom:1px solid var(--line)}
+.mblock-h b{font-size:12px;color:var(--purple);font-weight:900}
+.mblock-h .sub{font-size:8px;color:var(--muted);font-weight:700}
+.mblock-h .ex{margin-left:auto;font-size:7px;color:var(--muted);border:1px solid var(--line);padding:1px 3px}
+.mrow{display:flex;align-items:center;gap:5px;padding:5px 7px;border-top:1px dashed var(--line);font-size:9px;white-space:nowrap;overflow:hidden}
+.mrow:first-child{border-top:0}
+.mrow .mi{flex:0 0 32px;font-family:var(--num);color:var(--purple);font-weight:900;font-size:9px}
+.mrow .mt{flex:0 0 auto;font-weight:900;color:var(--ink);font-size:9px}
+.mrow .mz{flex:1 1 auto;min-width:0;color:var(--ink-2);font-weight:700;overflow:hidden;text-overflow:ellipsis;letter-spacing:.02em}
+.mrow .mr{flex:0 0 auto;font-size:8px;color:var(--muted);font-weight:700;display:flex;align-items:center;gap:2px}
+.mrow .plus{font:900 9px/1 var(--num);color:var(--purple);margin:0 1px}
+.mrow .plus,.mcard .f .plus,.mtab .plus{transform:none;align-self:center;line-height:1;font-size:10px}
+.mnum{display:inline-grid;place-items:center;min-width:17px;height:17px;border-radius:50%;color:#fff;font-family:var(--num);font-size:8px;font-weight:900;padding:0 2px}
+.mnum.r{background:var(--red)}.mnum.b{background:var(--blue)}.mnum.g{background:var(--green)}
+.mcard{margin:4px 7px;border:1px solid var(--line);border-left:3px solid var(--purple);padding:5px 6px}
+.mcard .t{font-size:9.5px;font-weight:900;color:var(--ink)}
+.mcard .t span{color:var(--purple);font-family:var(--num)}
+.mcard .z{font-size:10px;font-weight:900;color:var(--ink-2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mcard .z em{font-style:normal;color:var(--red)}
+.mcard .z u{text-decoration:none;color:var(--blue)}
+.mcard .f{margin-top:2px;font-size:8px;color:var(--muted);display:flex;align-items:center;gap:3px}
+.mgroup{font-size:9px;color:var(--ink-2);font-weight:700;padding:5px 7px;border-bottom:1px dashed var(--line);line-height:1.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mgroup b{color:var(--purple);font-weight:900}
+.mtab{display:grid;grid-template-columns:34px 34px 40px 1fr;gap:0;padding:0 7px 4px}
+.mtab .th{font-size:8px;color:var(--muted);font-weight:700;padding:3px 0;border-bottom:1px solid var(--line)}
+.mtab .td{font-size:9px;padding:4px 0;border-bottom:1px dashed var(--line);display:flex;align-items:center;gap:2px;white-space:nowrap;overflow:hidden}
+.mtab .td.issue{font-family:var(--num);color:var(--purple);font-weight:900}
+.mtab .td.zod{font-weight:900;color:var(--ink)}
+.mtab .td.code{font-family:var(--num);font-weight:900;color:var(--ink-2)}
+.mtab .td.res{color:var(--muted);font-size:8px}
+.mnote{font-size:8px;color:var(--muted);padding:3px 7px 6px;border-top:1px dashed var(--line);line-height:1.5}
 /* 历史 */
 .histbox{margin-top:14px;background:#fff;border:1px solid var(--line);border-top:2px solid var(--purple)}
 .hist-hd{display:flex;align-items:center;justify-content:space-between;padding:6px 8px;border-bottom:1px solid var(--line);font-size:11px;font-weight:900;color:var(--ink)}
@@ -220,6 +259,11 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
   <section class="sects" aria-label="九板块">
     <div class="sects-hd"><h2>九板块</h2><span>SECTIONS</span><a class="all" href="#ziliao">全部 ›</a></div>
     <div class="grid9" id="boards"></div>
+  </section>
+
+  <section class="more" id="moreBox" aria-label="更多资料">
+    <div class="more-hd"><h2>更多资料</h2><span class="en">MORE</span><span class="tag">期号升序 · 示例对照</span></div>
+    <div id="moreContent"><div class="skeleton">读取资料…</div></div>
   </section>
 
   <section class="histbox" aria-label="历史开奖">
@@ -657,6 +701,7 @@ function renderHome(){
   if($('#tabIssueHk2'))$('#tabIssueHk2').textContent=((by.HongKong&&by.HongKong.shortIssue)||'--')+'期';
   updateTabs();
   renderBoards(g);
+  renderMore(g);
   renderRec(g);
   renderZod(g);
   renderCountdown();
@@ -725,6 +770,68 @@ function renderCountdown(){
   if($('#cdLeft'))$('#cdLeft').textContent=hh+' 小时 '+mm+' 分';
   if($('#cdDay'))$('#cdDay').textContent='每日 '+drawTimeFor(ACTIVE).time+' 开奖';
   if($('#cdFill'))$('#cdFill').style.width=Math.min(100,Math.max(0,(1-left/86400000)*100)).toFixed(1)+'%';
+}
+
+function zodRot(start,n){var a=[];for(var i=0;i<n;i++)a.push(ZOD_ORDER[(start+i)%12]);return a}
+function moreResult(sp){
+  var c=colorOf(sp.c,sp.color);
+  return '<span class="plus">+</span><span class="mnum '+c+'">'+esc(p2(sp.c))+'</span><span style="margin-left:2px">'+esc(sp.z||'')+'</span>';
+}
+function renderMore(g){
+  var hist=((g.history||[]).slice()).sort(function(a,b){return Number(a.issue)-Number(b.issue)});
+  var rows=hist.slice(-7);
+  if(!rows.length){$('#moreContent').innerHTML='<div class="skeleton">暂无资料</div>';return}
+  var picks=(STATE.pick&&STATE.pick.rows)||[];
+  function pickFor(issue){for(var i=0;i<picks.length;i++)if(String(picks[i].issue)===String(issue))return picks[i];return null}
+  var data=rows.map(function(r,idx){
+    var p=pickFor(r.issue);
+    var base=(p&&p.seven&&p.seven.zodiac&&p.seven.zodiac.length>=7)?p.seven.zodiac:zodRot((Number(r.issue)||idx)%12,7);
+    var sp=(r.nums&&r.nums[6])||{c:'--',z:''};
+    var single4=base.slice(0,4),double4=base.slice(3,7);
+    var six=base.slice(0,6);
+    var kill3=(p&&p.three&&p.three.zodiac&&p.three.zodiac.length>=3)?p.three.zodiac:base.slice(0,3);
+    var nine=[];base.forEach(function(z){if(nine.indexOf(z)<0)nine.push(z)});zodRot((Number(r.issue)||0)%12,9).forEach(function(z){if(nine.length<9&&nine.indexOf(z)<0)nine.push(z)});
+    var one=(p&&p.pick&&p.pick.zodiac)?p.pick:{zodiac:base[0],num:(ZODIAC_2026[base[0]]||[1])[0]};
+    return {r:r,sp:sp,six:six,single4:single4,double4:double4,kill3:kill3,nine:nine,one:one};
+  });
+  function head(title,sub){return '<div class="mblock"><div class="mblock-h"><b>'+title+'</b><span class="sub">'+sub+'</span><span class="ex">示例</span></div>'}
+  var h='';
+  // 1 六肖列表
+  h+=head('六肖列表','往期六肖参考 · 期号升序');
+  data.forEach(function(d){
+    h+='<div class="mrow"><span class="mi">'+esc(shortIssue(d.r.issue))+'期</span><span class="mt">六肖</span><span class="mz">'+esc(d.six.join(' '))+'</span><span class="mr">开 '+moreResult(d.sp)+'</span></div>';
+  });
+  h+='<div class="mnote">六肖为示例资料 · 开奖号码取自已公布数据 · 不构成任何投注建议</div></div>';
+  // 2 单数双数 双行卡
+  h+=head('单数双数','双行卡 · 单/双各 4 肖');
+  data.forEach(function(d){
+    h+='<div class="mcard"><div class="t">第 <span>'+esc(shortIssue(d.r.issue))+'</span> 期 · 单数双数</div>'+
+       '<div class="z">单【'+esc(d.single4.join(''))+'】 双【'+esc(d.double4.join(''))+'】</div>'+
+       '<div class="f">开奖 '+moreResult(d.sp)+'</div></div>';
+  });
+  h+='<div class="mnote">单/双肖为示例对照 · 以真实开奖号码为准</div></div>';
+  // 3 广东会绝杀三肖
+  h+=head('广东会 · 绝杀三肖','三肖参考 · 期号升序');
+  data.forEach(function(d){
+    h+='<div class="mrow"><span class="mi">'+esc(shortIssue(d.r.issue))+'期</span><span class="mt">绝杀三肖</span><span class="mz">'+esc(d.kill3.join(' '))+'</span><span class="mr">开 '+moreResult(d.sp)+'</span></div>';
+  });
+  h+='<div class="mnote">三肖资料为示例，不含任何连中/必开承诺</div></div>';
+  // 4 九肖爆特
+  h+=head('九肖爆特','九肖参考 · 期号升序');
+  data.forEach(function(d){
+    h+='<div class="mrow"><span class="mi">'+esc(shortIssue(d.r.issue))+'期</span><span class="mt">九肖</span><span class="mz">'+esc(d.nine.join(' '))+'</span><span class="mr">开 '+moreResult(d.sp)+'</span></div>';
+  });
+  h+='<div class="mnote">九肖资料为示例对照 · 不构成任何预测</div></div>';
+  // 5 一肖主一码表
+  h+=head('一肖主一码表','主肖 + 主码对照');
+  var cur=(picks[0]||null);
+  if(cur&&cur.seven){h+='<div class="mgroup"><b>本期七肖</b> '+esc((cur.seven.zodiac||[]).slice(0,7).join(' '))+' · <b>⑦码</b> '+esc((cur.seven.nums||[]).slice(0,7).join(' '))+'<br><b>本期五肖</b> '+esc((cur.five&&cur.five.zodiac||[]).slice(0,5).join(' '))+' · <b>⑤码</b> '+esc((cur.five&&cur.five.nums||[]).slice(0,5).join(' '))+'<br><b>本期三肖</b> '+esc((cur.three&&cur.three.zodiac||[]).slice(0,3).join(' '))+' · <b>③码</b> '+esc((cur.three&&cur.three.nums||[]).slice(0,3).join(' '))+'</div>'}
+  h+='<div class="mtab"><div class="th">期号</div><div class="th">主肖</div><div class="th">主码</div><div class="th">开奖</div>';
+  data.forEach(function(d){
+    h+='<div class="td issue">'+esc(shortIssue(d.r.issue))+'</div><div class="td zod">'+esc(d.one.zodiac||'—')+'</div><div class="td code">'+esc(String(d.one.num||'—').length===1?'0'+d.one.num:(d.one.num||'—'))+'</div><div class="td res">'+moreResult(d.sp)+'</div>';
+  });
+  h+='</div><div class="mnote">主肖/主码为示例资料 · 与开奖结果对照展示，不作出任何保证</div></div>';
+  $('#moreContent').innerHTML=h;
 }
 
 init();
