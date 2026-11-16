@@ -62,6 +62,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
 .ball.r{background:radial-gradient(circle at 33% 22%,#ff8a95,#e0475b 50%,#a51f33)}
 .ball.b{background:radial-gradient(circle at 33% 22%,#8fb2ff,#3f6fe0 50%,#1f3f9e)}
 .ball.g{background:radial-gradient(circle at 33% 22%,#8fe4b8,#2fa66a 50%,#146b3e)}
+.ball.q{background:linear-gradient(145deg,#f3edff,#e3d7ff);color:var(--purple);border-color:#fff;box-shadow:0 2px 0 rgba(36,28,61,.12)}
 .plus{flex:0 0 6px;align-self:center;text-align:center;font:900 15px/1 var(--num);color:var(--purple);transform:translateY(-7px)}
 .zod{font-size:10px;font-weight:800;color:#6c5a8a;line-height:1.5;margin-top:1px}
 .draw-ft{display:flex;align-items:center;justify-content:space-between;gap:6px;border-top:1px dashed var(--line);padding-top:5px;font-size:9px;color:var(--muted)}
@@ -136,7 +137,10 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
 /* 历史 */
 .histbox{margin-top:14px;background:#fff;border:1px solid var(--line);border-top:2px solid var(--purple)}
 .hist-hd{display:flex;align-items:center;justify-content:space-between;padding:6px 8px;border-bottom:1px solid var(--line);font-size:11px;font-weight:900;color:var(--ink)}
+.hist-hd .tools{display:flex;align-items:center;gap:8px}
 .hist-hd a{font-size:8px;color:var(--purple);font-weight:700}
+.hist-toggle{border:1px solid var(--purple);background:#fff;color:var(--purple);font-size:8px;font-weight:900;padding:2px 6px;border-radius:0;line-height:1.4}
+.hist-toggle[aria-expanded="true"]{background:var(--purple);color:#fff}
 .hist-row{display:flex;align-items:center;gap:4px;padding:6px 8px;border-top:1px dashed var(--line);font-size:9px;white-space:nowrap;overflow:hidden}
 .hist-row:first-child{border-top:0}
 .hist-row .iss{flex:0 0 38px;font-family:var(--num);color:var(--purple);font-weight:900;font-size:9px}
@@ -267,7 +271,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
   </section>
 
   <section class="histbox" aria-label="历史开奖">
-    <div class="hist-hd"><span>历史开奖</span><a href="#trend">更多 ›</a></div>
+    <div class="hist-hd"><span>历史开奖</span><div class="tools"><a href="#trend">更多 ›</a><button type="button" class="hist-toggle" id="histToggle" aria-expanded="false">展开</button></div></div>
     <div id="recBox"><div class="skeleton">读取历史开奖…</div></div>
   </section>
 
@@ -396,6 +400,10 @@ var FALLBACK={
 var STATE={manual:null,draw:null,pick:null,ziliao:null,cfg:null};
 var ACTIVE='newhk';
 var COUNT_TIMER=null;
+var HIST_EXPANDED=false;
+var IS_REVEALING=false;
+var REVEAL_STATE={key:null,issue:null,nums:null,revealed:0};
+var FORCE_REVEAL=null;
 var TARGET=null;
 var ZODIAC_2026={'马':[1,13,25,37,49],'蛇':[2,14,26,38],'龙':[3,15,27,39],'兔':[4,16,28,40],'虎':[5,17,29,41],'牛':[6,18,30,42],'鼠':[7,19,31,43],'猪':[8,20,32,44],'狗':[9,21,33,45],'鸡':[10,22,34,46],'猴':[11,23,35,47],'羊':[12,24,36,48]};
 var ZOD_ORDER=['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪'];
@@ -460,6 +468,7 @@ function nextDraw(key){
   return d;
 }
 function renderCountdown(){
+  if(IS_REVEALING)return;
   if(!TARGET)TARGET=nextDraw(ACTIVE);
   var left=Math.max(0,TARGET.getTime()-Date.now()),s=Math.floor(left/1000);
   var hh=Math.floor(s/3600),mm=Math.floor(s%3600/60),ss=s%60;
@@ -486,6 +495,7 @@ function renderHome(){
   $('#bannerKick').textContent=g.status==='已开奖'?'本期开奖结果':'最新开奖资料';
   $('#bannerSub').textContent=g.name+'第'+String(g.labelIssue||'--').slice(-3)+'期 · 号码与生肖资料汇总';
   renderCountdown();
+  updateRevealState();
 }
 function renderBoards(g){
   var issue='第'+String(g.labelIssue||'--').slice(-3)+'期';
@@ -521,7 +531,8 @@ function prettyHistory(h){
   return (h.nums||[]).map(function(x){return '<span style="font-family:var(--num);font-weight:900;color:'+(colorOf(x.c,x.color)==='r'?'#e21b1b':colorOf(x.c,x.color)==='b'?'#1758c8':'#28a745')+'">'+esc(p2(x.c))+'</span>'}).join(' ');
 }
 function renderRec(g){
-  var h=(g.history||[]).slice(0,4);
+  var all=(g.history||[]),h=HIST_EXPANDED?all.slice():all.slice(0,5);
+  var tg=$('#histToggle');if(tg){tg.textContent=HIST_EXPANDED?'收起':'展开';tg.setAttribute('aria-expanded',HIST_EXPANDED?'true':'false');tg.style.display=all.length>5?'':'none'}
   if(!h.length){$('#recBox').innerHTML='<div class="skeleton">暂无历史开奖</div>';return}
   var html='';
   for(var i=0;i<h.length;i++){
@@ -551,10 +562,13 @@ function startClock(){
   if(COUNT_TIMER)clearInterval(COUNT_TIMER);
   TARGET=nextDraw(ACTIVE);
   renderCountdown();
-  COUNT_TIMER=setInterval(renderCountdown,1000);
+  updateRevealState();
+  COUNT_TIMER=setInterval(tickAll,1000);
 }
 function setActive(k){
   ACTIVE=k;
+  REVEAL_STATE={key:null,issue:null,nums:null,revealed:0};
+  FORCE_REVEAL=null;
   TARGET=nextDraw(k);
   renderHome();
   startClock();
@@ -630,6 +644,122 @@ function route(){
 }
 window.addEventListener('hashchange',route);
 
+
+function revealCfg(){
+  var c=(STATE.cfg&&STATE.cfg.reveal)||{};
+  var o={mode:'fixed',seconds:10,min:8,max:15,specialExtra:5};
+  try{
+    if(c.mode==='fixed'||c.mode==='random')o.mode=c.mode;
+    if(isFinite(c.seconds))o.seconds=Math.max(1,Math.min(120,+c.seconds));
+    if(isFinite(c.min))o.min=Math.max(1,Math.min(120,+c.min));
+    if(isFinite(c.max))o.max=Math.max(1,Math.min(120,+c.max));
+    if(isFinite(c.specialExtra))o.specialExtra=Math.max(0,Math.min(120,+c.specialExtra));
+  }catch(e){}
+  if(o.mode==='random'&&o.min>o.max){var t=o.min;o.min=o.max;o.max=t}
+  return o;
+}
+function revealTimeline(issue){
+  var c=revealCfg(),out=[1500],t=1500,rnd=null;
+  if(c.mode==='random'){
+    var seed=2166136261,str='v'+issue;
+    for(var x=0;x<str.length;x++){seed^=str.charCodeAt(x);seed=Math.imul(seed,16777619)}
+    var s=seed>>>0||1;
+    rnd=function(){s=(s+0x6D2B79F5)>>>0;var q=s;q=Math.imul(q^(q>>>15),q|1);q^=q+Math.imul(q^(q>>>7),q|61);return ((q^(q>>>14))>>>0)/4294967296};
+  }
+  for(var i=1;i<=6;i++){
+    var gap=c.mode==='random'?(c.min+Math.floor(rnd()*(c.max-c.min+1))):c.seconds;
+    t+=gap*1000;
+    if(i===6)t+=(c.specialExtra||0)*1000;
+    out.push(t);
+  }
+  return out;
+}
+function drawDue(key){
+  var t=drawTimeFor(key),a=String(t.time).split(':');
+  var now=new Date();
+  var d=new Date(now.getFullYear(),now.getMonth(),now.getDate(),parseInt(a[0],10)||21,parseInt(a[1],10)||30,0,0);
+  for(var i=0;i<14;i++){
+    var x=new Date(d.getTime()-i*864e5);
+    if(t.days.indexOf(x.getDay())>=0&&x<=now)return x;
+  }
+  return d;
+}
+function sameDay(v,due){
+  try{var d=new Date(v);if(isNaN(d.getTime()))return false;return d.getFullYear()===due.getFullYear()&&d.getMonth()===due.getMonth()&&d.getDate()===due.getDate()}catch(e){return false}
+}
+function revealDataFor(due){
+  if(ACTIVE==='newhk'){
+    var md=STATE.manual||{},cur=STATE.manual||{};
+    var issue=null,nums=null;
+    if(cur.visibleFrom&&sameDay(cur.visibleFrom,due)){issue=cur.issue;nums=cur.nums||null;if((!nums||nums.length<7)&&cur.numsEnc)nums=vfDec(cur.numsEnc)}
+    if((!nums||nums.length<7)){
+      var hist=md.history||[];
+      for(var i=0;i<hist.length;i++){if(hist[i].visibleFrom&&sameDay(hist[i].visibleFrom,due)&&hist[i].nums&&hist[i].nums.length>=7){issue=hist[i].issue;nums=hist[i].nums;break}}
+    }
+    if((!nums||nums.length<7)&&md.history&&md.history[0]&&md.history[0].nums&&md.history[0].nums.length>=7){issue=md.history[0].issue;nums=md.history[0].nums}
+    return {issue:issue,nums:(nums&&nums.length>=7)?nums:null};
+  }
+  var rule=ACTIVE==='newmo'?'Macau':'HongKong',g=gameByRule(rule)||{};
+  return {issue:g.shortIssue||shortIssue(g.issue),nums:(g.nums&&g.nums.length>=7)?g.nums:null};
+}
+function revealBalls(nums,revealed){
+  var out='';
+  for(var i=0;i<7;i++){
+    if(i===6)out+='<span class="plus">+</span>';
+    if(nums&&i<revealed){var x=nums[i]||{};out+='<div class="bwrap"><div class="ball '+colorOf(x.c,x.color)+'">'+esc(p2(x.c))+'</div><div class="zod">'+esc(x.z||'')+(i===6?' · 特':'')+'</div></div>'}
+    else out+='<div class="bwrap"><div class="ball q">?</div><div class="zod">'+(i===6?'? · 特':'待开')+'</div></div>';
+  }
+  return out;
+}
+function renderRevealUI(issue,nums,revealed){
+  if($('#drawCardIssue'))$('#drawCardIssue').innerHTML='第 <span style="font-family:var(--num)">'+esc(shortIssue(issue))+'</span> 期';
+  if($('#brandIssue'))$('#brandIssue').textContent='第'+esc(shortIssue(issue))+'期';
+  if($('#drawStatus'))$('#drawStatus').textContent='开奖中';
+  if($('#annText'))$('#annText').textContent='新港 第'+esc(shortIssue(issue))+'期 开奖中 · 正在揭晓';
+  if($('#balls'))$('#balls').innerHTML=revealBalls(nums,revealed);
+  if($('#cdH'))$('#cdH').textContent='?';
+  if($('#cdM'))$('#cdM').textContent='?';
+  if($('#cdS'))$('#cdS').textContent='?';
+  if($('#cdIssue'))$('#cdIssue').textContent='开奖中';
+  if($('#cdLeft'))$('#cdLeft').textContent='正在揭晓 '+revealed+'/7';
+  if($('#cdDay'))$('#cdDay').textContent='请稍候';
+  if($('#cdFill'))$('#cdFill').style.width=((revealed/7)*100).toFixed(1)+'%';
+}
+function updateRevealState(){
+  var key=ACTIVE,due=drawDue(key),now=Date.now(),elapsed=now-due.getTime();
+  var timeline=revealTimeline(REVEAL_STATE.issue||''),total=timeline[6]+10000;
+  var forced=FORCE_REVEAL&&FORCE_REVEAL.key===key&&Date.now()<FORCE_REVEAL.until;
+  if(forced)elapsed=FORCE_REVEAL.elapsed;
+  var active=forced||(elapsed>=0&&elapsed<total);
+  if(!active){
+    if(IS_REVEALING){IS_REVEALING=false;REVEAL_STATE={key:null,issue:null,nums:null,revealed:0};renderHome();}
+    return;
+  }
+  var info=revealDataFor(due);
+  var issue=info.issue||REVEAL_STATE.issue||currentGame().labelIssue;
+  if(REVEAL_STATE.key!==key||REVEAL_STATE.issue!==issue){REVEAL_STATE={key:key,issue:issue,nums:null,revealed:0}}
+  var nums=info.nums||REVEAL_STATE.nums;
+  if(info.nums)REVEAL_STATE.nums=info.nums;
+  timeline=revealTimeline(issue);
+  var revealed=0;
+  if(nums){for(var i=0;i<7;i++){if(timeline[i]<=elapsed)revealed++}}
+  REVEAL_STATE.revealed=revealed;
+  IS_REVEALING=true;
+  renderRevealUI(issue,nums,revealed);
+}
+function tickAll(){renderCountdown();updateRevealState();}
+window.__site3PreviewReveal=function(ms){FORCE_REVEAL={key:ACTIVE,elapsed:ms||500,until:Date.now()+8000};updateRevealState();};
+
+
+function refreshData(){
+  Promise.all([get('manual-draw.json').catch(function(){return null}),get('draw.json').catch(function(){return null}),get('site-config.json').catch(function(){return null})]).then(function(r){
+    if(!r[0]||!r[1])return;
+    STATE.manual=normManual(r[0]);STATE.draw=r[1];if(r[2])STATE.cfg=r[2];
+    renderHome();
+    try{renderGallery();renderZiliao($('#zlSearch')?$('#zlSearch').value:'');renderTrend()}catch(e){}
+  }).catch(function(){});
+}
+
 function init(){
   renderDate();
   // 默认先渲染骨架
@@ -655,6 +785,7 @@ function init(){
     document.documentElement.setAttribute('data-site','fallback');
   });
 
+  var ht=$('#histToggle');if(ht)ht.addEventListener('click',function(){HIST_EXPANDED=!HIST_EXPANDED;renderRec(currentGame())});
   var tabs=document.querySelectorAll('#tabs .tab');
   for(var i=0;i<tabs.length;i++)tabs[i].addEventListener('click',function(){setActive(this.getAttribute('data-g'))});
   var chips=document.querySelectorAll('#galChips .chip');
@@ -666,6 +797,7 @@ function init(){
   $('#zlBtn').addEventListener('click',function(){renderZiliao($('#zlSearch').value)});
   startClock();
   route();
+  setInterval(refreshData,30000);
 }
 
 /* ===== 2026-11-15 改版：淡紫方角布局覆盖 ===== */
@@ -735,7 +867,8 @@ function renderBoards(g){
   $('#boards').innerHTML=h;
 }
 function renderRec(g){
-  var h=(g.history||[]).slice(0,4);
+  var all=(g.history||[]),h=HIST_EXPANDED?all.slice():all.slice(0,5);
+  var tg=$('#histToggle');if(tg){tg.textContent=HIST_EXPANDED?'收起':'展开';tg.setAttribute('aria-expanded',HIST_EXPANDED?'true':'false');tg.style.display=all.length>5?'':'none'}
   if(!h.length){$('#recBox').innerHTML='<div class="skeleton">暂无历史开奖</div>';return}
   var html='';
   for(var i=0;i<h.length;i++){
