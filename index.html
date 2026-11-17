@@ -26,6 +26,14 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
 .ann-tag{flex:0 0 auto;background:var(--purple);color:#fff;font-size:9px;font-weight:900;padding:2px 6px;border-radius:2px;letter-spacing:.06em}
 .ann-text{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;color:var(--ink-2)}
 .ann-date{flex:0 0 auto;font-size:8px;color:var(--muted)}
+.refresh-btn{flex:0 0 auto;min-width:50px;height:40px;margin-left:5px;border:1px solid var(--purple);background:#fff;color:var(--purple);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:2px 5px;border-radius:0;line-height:1}
+.refresh-btn .ico{font-size:14px;font-weight:900;display:block}
+.refresh-btn .txt{font-size:8px;font-weight:900;white-space:nowrap;display:block}
+.refresh-btn.loading{opacity:.85}
+.refresh-btn.loading .ico{animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.toast{position:fixed;left:50%;bottom:70px;transform:translateX(-50%);z-index:80;background:var(--ink);color:#fff;font-size:11px;font-weight:700;padding:8px 12px;opacity:0;pointer-events:none;transition:opacity .18s;white-space:nowrap;max-width:86vw;overflow:hidden;text-overflow:ellipsis;border-radius:2px}
+.toast.on{opacity:1}
 /* 品牌头 */
 .brandhead{background:var(--lav-2);border-bottom:1px solid var(--line);padding:12px 0 10px}
 .brandhead .row{display:flex;align-items:center;gap:9px}
@@ -40,7 +48,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
 .issuebox span{display:block;font-size:8px;color:var(--muted);margin-top:2px;white-space:nowrap}
 /* 彩种 */
 .tabs{display:flex;gap:0;border:1px solid var(--line-2);border-top:0;background:#fff;margin-top:8px}
-.tab{flex:1;border:0;border-right:1px solid var(--line);background:var(--lav);padding:7px 2px 6px;display:flex;flex-direction:column;align-items:center;gap:2px;color:#6b5a92;border-radius:0;position:relative}
+.tab{flex:1;border:0;border-right:1px solid var(--line);background:var(--lav);padding:7px 2px 6px;min-height:44px;display:flex;flex-direction:column;align-items:center;gap:2px;color:#6b5a92;border-radius:0;position:relative}
 .tab:last-child{border-right:0}
 .tab b{font-size:14px;font-weight:900;letter-spacing:.04em}
 .tab small{font-size:8px;color:#9a8eb8;font-weight:700}
@@ -139,7 +147,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
 .hist-hd{display:flex;align-items:center;justify-content:space-between;padding:6px 8px;border-bottom:1px solid var(--line);font-size:11px;font-weight:900;color:var(--ink)}
 .hist-hd .tools{display:flex;align-items:center;gap:8px}
 .hist-hd a{font-size:8px;color:var(--purple);font-weight:700}
-.hist-toggle{border:1px solid var(--purple);background:#fff;color:var(--purple);font-size:8px;font-weight:900;padding:2px 6px;border-radius:0;line-height:1.4}
+.hist-toggle{border:1px solid var(--purple);background:#fff;color:var(--purple);font-size:8px;font-weight:900;min-width:44px;min-height:40px;padding:6px 8px;border-radius:0;line-height:1.2}
 .hist-toggle[aria-expanded="true"]{background:var(--purple);color:#fff}
 .hist-row{display:flex;align-items:center;gap:4px;padding:6px 8px;border-top:1px dashed var(--line);font-size:9px;white-space:nowrap;overflow:hidden}
 .hist-row:first-child{border-top:0}
@@ -220,7 +228,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
 </style>
 </head>
 <body>
-<div class="announce"><span class="ann-tag">公告</span><span class="ann-text" id="annText">开奖资料加载中…</span><span class="ann-date" id="annDate">—</span></div>
+<div class="announce"><span class="ann-tag">公告</span><span class="ann-text" id="annText">开奖资料加载中…</span><span class="ann-date" id="annDate">—</span><button class="refresh-btn" id="refreshBtn" type="button" aria-label="刷新开奖数据"><span class="ico">↻</span><span class="txt">刷新</span></button></div>
 
 <header class="brandhead"><div class="wrap">
   <div class="row">
@@ -270,17 +278,17 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
     <div id="moreContent"><div class="skeleton">读取资料…</div></div>
   </section>
 
-  <section class="histbox" aria-label="历史开奖">
+  <section class="histbox" id="histSection" aria-label="历史开奖">
     <div class="hist-hd"><span>历史开奖</span><div class="tools"><a href="#trend">更多 ›</a><button type="button" class="hist-toggle" id="histToggle" aria-expanded="false">展开</button></div></div>
     <div id="recBox"><div class="skeleton">读取历史开奖…</div></div>
   </section>
 
-  <section class="zodbox" aria-label="生肖号码表">
+  <section class="zodbox" id="zodSection" aria-label="生肖号码表">
     <div class="zod-hd"><span>生肖号码表</span><span>2026 丙午 · 点击查看</span></div>
     <div class="zod-grid" id="zodGrid"></div>
   </section>
 
-  <section class="poembox" aria-label="玄机诗象">
+  <section class="poembox" id="poemSection" aria-label="玄机诗象">
     <div class="poem-hd">玄机诗象 <span id="poemIssue">第--期</span></div>
     <div class="poem-txt">灯下翻旧卷，潮声到码头；<br>东南风一转，数到第七舟。</div>
     <div class="poem-note">诗句为示例文案 · 本页不构成任何投注建议</div>
@@ -332,6 +340,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
   <div class="foot">走势根据公开历史数据计算 · 不构成任何预测</div>
 </div></section>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <nav class="bnav" id="bnav" aria-label="底部导航">
   <a href="#home" class="on" data-nav="home"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg><span>首页</span></a>
   <a href="#gallery" data-nav="gallery"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14"/><path d="M3.5 16l5-5 4 4 3-3 4.5 4.5"/><circle cx="9" cy="9.5" r="1.2"/></svg><span>图库</span></a>
@@ -633,11 +642,12 @@ function renderTrend(){
 var VIEWS={home:'#view-home',gallery:'#view-gallery',ziliao:'#view-ziliao',trend:'#view-trend'};
 var TITLES={home:'新香港论坛 · 开奖资料',gallery:'生肖图库 · 新香港论坛',ziliao:'资料大全 · 新香港论坛',trend:'规律走势 · 新香港论坛'};
 function route(){
-  var key=(location.hash||'#home').replace('#','');if(!VIEWS[key])key='home';
+  var raw=(location.hash||'#home').replace('#','');var key=raw;if(!VIEWS[key])key='home';
   Object.keys(VIEWS).forEach(function(k){$(VIEWS[k]).hidden=(k!==key)});
   document.title=TITLES[key]||TITLES.home;
   var bs=document.querySelectorAll('#bnav a');for(var i=0;i<bs.length;i++)bs[i].classList.toggle('on',bs[i].getAttribute('data-nav')===key);
   window.scrollTo(0,0);
+  if(!VIEWS[raw]){setTimeout(function(){var el=document.getElementById(raw);if(el)el.scrollIntoView({block:'start'})},40)}
   if(key==='gallery')renderGallery();
   if(key==='ziliao')renderZiliao($('#zlSearch')?$('#zlSearch').value:'');
   if(key==='trend')renderTrend();
@@ -751,6 +761,49 @@ function tickAll(){renderCountdown();updateRevealState();}
 window.__site3PreviewReveal=function(ms){FORCE_REVEAL={key:ACTIVE,elapsed:ms||500,until:Date.now()+8000};updateRevealState();};
 
 
+var TOAST_TIMER=0;
+function showToast(msg){
+  var t=$('#toast');if(!t)return;
+  t.textContent=msg;t.classList.add('on');
+  if(TOAST_TIMER)clearTimeout(TOAST_TIMER);
+  TOAST_TIMER=setTimeout(function(){t.classList.remove('on')},2200);
+}
+function refreshAll(){
+  var btn=$('#refreshBtn');
+  if(btn&&btn.disabled)return Promise.resolve(false);
+  var started=Date.now();
+  if(btn){btn.disabled=true;btn.classList.add('loading');btn.setAttribute('aria-busy','true');var tx=btn.querySelector('.txt');if(tx)tx.textContent='刷新中…'}
+  function done(ok){
+    var wait=Math.max(0,500-(Date.now()-started));
+    setTimeout(function(){
+      if(btn){btn.disabled=false;btn.classList.remove('loading');btn.removeAttribute('aria-busy');var tx2=btn.querySelector('.txt');if(tx2)tx2.textContent='刷新'}
+      var upd=(STATE.draw&&STATE.draw.updated)?String(STATE.draw.updated).slice(11,16):'';showToast(ok?('数据已刷新'+(upd?' · '+upd:'')):'刷新失败，稍后重试');
+    },wait);
+    return ok;
+  }
+  return Promise.all([
+    get('manual-draw.json').catch(function(){return null}),
+    get('draw.json').catch(function(){return null}),
+    get('pick.json').catch(function(){return null}),
+    get('manual-ziliao.json').catch(function(){return null}),
+    get('site-config.json').catch(function(){return null})
+  ]).then(function(r){
+    if(!r[0]||!r[1])throw new Error('empty data');
+    STATE.manual=normManual(r[0]);STATE.draw=r[1];if(r[2])STATE.pick=r[2];if(r[3])STATE.ziliao=r[3];if(r[4])STATE.cfg=r[4];
+    if(!STATE.pick||!STATE.pick.rows||!STATE.pick.rows.length)STATE.pick=FALLBACK.pick;
+    if(!STATE.ziliao||!STATE.ziliao.rows||!STATE.ziliao.rows.length)STATE.ziliao=FALLBACK.ziliao;
+    TARGET=nextDraw(ACTIVE);
+    renderHome();
+    try{renderGallery();renderZiliao($('#zlSearch')?$('#zlSearch').value:'');renderTrend()}catch(e){}
+    window.__refreshCount=(window.__refreshCount||0)+1;
+    window.__lastRefresh=Date.now();
+    try{window.__site3Data={manualIssue:STATE.manual.issue,manualNums:(STATE.manual.nums||[]).length,drawUpdated:STATE.draw.updated||'',pickRows:(STATE.pick.rows||[]).length,ziliaoRows:(STATE.ziliao.rows||[]).length,drawTimes:STATE.cfg&&STATE.cfg.drawTimes?Object.keys(STATE.cfg.drawTimes):[]}}catch(e){}
+    return done(true);
+  }).catch(function(e){
+    console.warn('[site3] refresh failed',e&&e.message);
+    return done(false);
+  });
+}
 function refreshData(){
   Promise.all([get('manual-draw.json').catch(function(){return null}),get('draw.json').catch(function(){return null}),get('site-config.json').catch(function(){return null})]).then(function(r){
     if(!r[0]||!r[1])return;
@@ -786,6 +839,7 @@ function init(){
   });
 
   var ht=$('#histToggle');if(ht)ht.addEventListener('click',function(){HIST_EXPANDED=!HIST_EXPANDED;renderRec(currentGame())});
+  var rb=$('#refreshBtn');if(rb)rb.addEventListener('click',function(){refreshAll()});
   var tabs=document.querySelectorAll('#tabs .tab');
   for(var i=0;i<tabs.length;i++)tabs[i].addEventListener('click',function(){setActive(this.getAttribute('data-g'))});
   var chips=document.querySelectorAll('#galChips .chip');
@@ -846,12 +900,12 @@ function renderBoards(g){
   var pick=pickRows[0]||null;
   var pickN=pick&&pick.seven&&pick.seven.nums?pick.seven.nums.length:'--';
   var B=[
-    {no:'01',nm:'本期精选',meta:'第'+si+'期 · '+pickN+'码',c:'#6b4fe0',href:'#home',badge:'HOT'},
-    {no:'02',nm:'历史开奖',meta:'近 '+hist+' 期记录',c:'#3f6fe0',href:'#trend'},
+    {no:'01',nm:'本期精选',meta:'第'+si+'期 · '+pickN+'码',c:'#6b4fe0',href:'#moreBox',badge:'HOT'},
+    {no:'02',nm:'历史开奖',meta:'近 '+hist+' 期记录',c:'#3f6fe0',href:'#histSection'},
     {no:'03',nm:'资料大全',meta:zl+' 条资料',c:'#8a5bd6',href:'#ziliao',badge:'NEW'},
-    {no:'04',nm:'生肖号码',meta:'12 生肖 · 2026 丙午',c:'#2fa66a',href:'#home'},
+    {no:'04',nm:'生肖号码',meta:'12 生肖 · 2026 丙午',c:'#2fa66a',href:'#zodSection'},
     {no:'05',nm:'规律走势',meta:'近 '+hist+' 期分布',c:'#c58a2a',href:'#trend',badge:'HOT'},
-    {no:'06',nm:'玄机诗象',meta:'第'+si+'期 · 每日一诗',c:'#b4557f',href:'#home'},
+    {no:'06',nm:'玄机诗象',meta:'第'+si+'期 · 每日一诗',c:'#b4557f',href:'#poemSection'},
     {no:'07',nm:'图库',meta:'8 张开奖海报',c:'#0e9aa7',href:'#gallery'},
     {no:'08',nm:'新手入门',meta:'开奖资料指引',c:'#6b4fe0',href:'#ziliao'},
     {no:'09',nm:'常见问题',meta:'使用说明',c:'#3f6fe0',href:'#ziliao'}
