@@ -961,12 +961,14 @@ function renderCountdown(){
 
 function zodRot(start,n){var a=[];for(var i=0;i<n;i++)a.push(ZOD_ORDER[(start+i)%12]);return a}
 function moreResult(sp){
+  if(!sp||!sp.c||sp.c==='--')return '<span class="mnum">待开</span>';
   var c=colorOf(sp.c,sp.color);
   return '<span class="plus">+</span><span class="mnum '+c+'">'+esc(p2(sp.c))+'</span><span style="margin-left:2px">'+esc(sp.z||'')+'</span>';
 }
 function renderMore(g){
   var hist=((g.history||[]).slice()).sort(function(a,b){return Number(a.issue)-Number(b.issue)});
   var rows=hist.slice(-7);
+  if(g&&g.issue&&(!rows.length||Number(rows[rows.length-1].issue)<Number(g.issue)))rows.push({issue:g.issue,nums:[],_pending:true});
   if(!rows.length){$('#moreContent').innerHTML='<div class="skeleton">暂无资料</div>';return}
   var picks=(STATE.pick&&STATE.pick.rows)||[];
   function pickFor(issue){for(var i=0;i<picks.length;i++)if(String(picks[i].issue)===String(issue))return picks[i];return null}
