@@ -968,7 +968,7 @@ function moreResult(sp){
 function renderMore(g){
   var hist=((g.history||[]).slice()).sort(function(a,b){return Number(a.issue)-Number(b.issue)});
   var rows=hist.slice(-7);
-  if(g&&g.issue&&(!rows.length||Number(rows[rows.length-1].issue)<Number(g.issue)))rows.push({issue:g.issue,nums:[],_pending:true});
+  var _last=rows.length?Number(rows[rows.length-1].issue):0;var _cur=Math.max(Number(g&&g.issue)||0,_last)+1;if(_cur&&!rows.some(function(x){return Number(x.issue)===_cur}))rows.push({issue:_cur,nums:[],_pending:true});
   if(!rows.length){$('#moreContent').innerHTML='<div class="skeleton">暂无资料</div>';return}
   var picks=(STATE.pick&&STATE.pick.rows)||[];
   function pickFor(issue){for(var i=0;i<picks.length;i++)if(String(picks[i].issue)===String(issue))return picks[i];return null}
